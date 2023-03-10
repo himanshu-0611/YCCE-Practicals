@@ -1,0 +1,19 @@
+openssl genrsa -out priv-key.pem
+
+cat priv-key.pem
+
+openssl rsa -pubout -in priv-key.pem -out pub-key.pem
+
+openssl rsa -text -in priv-key.pem
+
+~$ cat > file.txt 
+I use C++ for coding 
+(ctrl D to save file)
+
+openssl rsautl -encrypt -in file.txt -pubin -inkey pub-key.pem -out cipher.bin
+
+cat cipher.bin
+
+openssl rsautl -decrypt -in cipher.bin -inkey priv-key.pem -out decrypted.txt
+
+cat decrypted.txt

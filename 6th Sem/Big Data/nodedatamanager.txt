@@ -1,0 +1,3 @@
+start "Apache Hadoop Distribution" C:\hadoop\bin\yarn resourcemanager
+
+start "Apache Hadoop Distribution" C:\hadoop\bin\yarn nodemanager

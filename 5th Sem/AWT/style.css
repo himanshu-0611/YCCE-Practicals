@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Varela+Round&display=swap');
+        *{
+            text-align: center;
+        }
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .fields{
+            margin: auto;
+            align-self: center;
+            padding-top: 1px;
+            width: 50%;
+            padding-bottom: 20px;
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.326);
+            border-radius: 50px;
+        }
+        .header{
+            font-size: 40px;
+        }
+        .mt-3{
+            margin-top: 27px;
+        }
+        .lastline{
+            font-weight: 700;
+            font-size: 25px;
+        }
+        .btn{
+            font-size: 20px;
+            background-color: rgb(255, 69, 69);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+        #mstatus, #choose-file{
+            font-family: 'Poppins', sans-serif;
+        }

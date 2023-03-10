@@ -1,0 +1,6 @@
+
+23	him	nagpur	40000
+23	cd	"d:\C_C++\Practicals	7564385
+34	Jon	Nagpur	50000
+35	Jim	Mumbai	30000
+44	Jack	Mumbai	20000

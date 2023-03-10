@@ -1,0 +1,13 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "random": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "algorithm": "c",
+        "sstream": "cpp",
+        "regex": "cpp",
+        "ostream": "cpp"
+    }
+}

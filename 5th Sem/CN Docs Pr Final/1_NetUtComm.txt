@@ -1,0 +1,10 @@
+ipconfig
+
+ping google.com
+
+netstat
+
+nslookup
+> google.com
+
+tracert 8.8.8.8

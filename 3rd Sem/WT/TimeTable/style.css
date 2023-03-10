@@ -1,0 +1,14 @@
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  th, td {
+    background-color: cyan;
+  }
+  table {
+    width: 100%;
+  }
+  
+  th {
+    height: 70px;
+  }

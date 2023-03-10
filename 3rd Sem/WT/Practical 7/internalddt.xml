@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE note [
+<!ELEMENT note (to,from,heading,body)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+]>
+<note>
+<to>To</to>
+<from>John</from>
+<heading>Alert</heading>
+<body>Quiz submission deadline</body>
+</note> 
+
+
+            <!-- Himanshu Agarkar -->
+            <!-- A45     20010343 -->

@@ -1,0 +1,7 @@
+Jim		34		2
+Jon		35		8
+Jack		36		2
+Him		27		1
+Derek		29		4
+Jay		88		3
+ree		23		8

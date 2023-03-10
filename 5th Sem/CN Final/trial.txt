@@ -1,0 +1,449 @@
+ipconfig
+
+ping google.com
+
+netstat
+
+nslookup
+> google.com
+
+tracert 8.8.8.8
+
+========================================= Hamming Code =======================================
+==============================================================================================
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int m_size, rbit = 0, msg[50], data[60], i, k, j, count = 0;
+    cout << "\nEnter message size: ";
+    cin >> m_size;
+
+    while (1)
+    {
+        if ((m_size + rbit + 1) <= (int)pow(2, rbit))
+            break;
+
+        rbit++;
+    }
+    cout << "Enter message: ";
+    for (i = m_size; i >= 1; i--)
+    {
+        cin >> msg[i];
+    }
+    k = 0; 
+    j = 1; 
+    for (i = 1; i <= (m_size + rbit); i++)
+    {
+        if (i == (int)pow(2, k))
+        {
+            data[i] = 8;
+            k++;
+        }
+        else
+        {
+            data[i] = msg[j];
+            j++;
+        }
+    }
+    for (i = 1; i <= (m_size + rbit); i++)
+    {
+        if (data[i] == 8)
+        {
+            data[i] = 0;
+            int count = 0;
+            for (j = i; j <= (m_size + rbit); j++)
+            {
+                for (k = 0; k < i; k++)
+                {
+                    if (data[j] == 1)
+                    {
+                        count++;
+                    }
+                    j++;
+                }
+                j = j + i - 1;
+            }
+
+            if (count % 2 == 0)
+                data[i] = 1;
+            else
+                data[i] = 0;
+        }
+    }
+    cout << "\nSender side code: ";
+    for (i = (m_size + rbit); i >= 1; i--)
+        cout << data[i] << " ";
+    cout << "\n\n-------------------------------------------------------\n"
+         << endl;
+
+    cout << "Enter receiver side code: ";
+    for (i = (m_size + rbit); i >= 1; i--)
+        cin >> data[i];
+
+    int c = 0;
+
+    int parities[m_size] = {0};
+    for (i = 1; i <= (m_size + rbit); i++)
+    {
+        if (i == (int)pow(2, c))
+        {
+            count = 0;
+            for (j = i; j <= (m_size + rbit); j++)
+            {
+                for (k = 0; k < i; k++)
+                {
+                    if (data[j] == 1)
+                    {
+                        count++;
+                    }
+                    j++;
+                }
+                j = j + i - 1;
+            }
+            if (data[i] == 1)
+                count--;
+            if (count % 2 == data[i])
+                parities[c] = 1;
+            else if (count % 2 != data[i])
+                parities[c] = 0;
+            c++;
+        }
+    }
+    c = 0;
+    for (int i = 0; i < rbit; i++)
+    {
+        c += parities[i] * ((int)pow(2, i));
+    }
+    if (c == 0)
+    {
+        cout << "NO ERROR FOUND !!!" << endl;
+        exit(0);
+    }
+    cout << "\nError at position: " << c << endl;
+    data[c] = data[c] == 0 ? 1 : 0;
+    cout << "After error correction: ";
+    for (i = (m_size + rbit); i >= 1; i--)
+    {
+        cout << data[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+================================================== Dijkstras AdjList ====================================
+
+#include <stdio.h>
+#define INFINITY 9999
+#define MAX 10
+
+void Dijkstra(int Graph[MAX][MAX], int n, int start);
+
+void Dijkstra(int Graph[MAX][MAX], int n, int start)
+{
+    int cost[MAX][MAX], distance[MAX], pred[MAX];
+    int visited[MAX], count, mindistance, nextnode, i, j;
+
+    for (i = 0; i < n; i++)
+        for (j = 0; j < n; j++)
+            if (Graph[i][j] == 0)
+                cost[i][j] = INFINITY;
+            else
+                cost[i][j] = Graph[i][j];
+
+    for (i = 0; i < n; i++)
+    {
+        distance[i] = cost[start][i];
+        pred[i] = start;
+        visited[i] = 0;
+    }
+
+    distance[start] = 0;
+    visited[start] = 1;
+    count = 1;
+
+    while (count < n - 1)
+    {
+        mindistance = INFINITY;
+
+        for (i = 0; i < n; i++)
+            if (distance[i] < mindistance && !visited[i])
+            {
+                mindistance = distance[i];
+                nextnode = i;
+            }
+
+        visited[nextnode] = 1;
+        for (i = 0; i < n; i++)
+            if (!visited[i])
+                if (mindistance + cost[nextnode][i] < distance[i])
+                {
+                    distance[i] = mindistance + cost[nextnode][i];
+                    pred[i] = nextnode;
+                }
+        count++;
+    }
+
+    for (i = 0; i < n; i++)
+        if (i != start)
+        {
+            printf("\nDistance from source to %d: %d", i, distance[i]);
+        }
+}
+int main()
+{
+    int Graph[MAX][MAX], i, j, n, u;
+    n = 6;
+
+    Graph[0][0] = 0;
+    Graph[0][1] = 2;
+    Graph[0][2] = 0;
+    Graph[0][3] = 6;
+    Graph[0][4] = 0;
+    Graph[0][5] = 0;
+
+    Graph[1][0] = 2;
+    Graph[1][1] = 0;
+    Graph[1][2] = 4;
+    Graph[1][3] = 0;
+    Graph[1][4] = 3;
+    Graph[1][5] = 0;
+
+    Graph[2][0] = 0;
+    Graph[2][1] = 4;
+    Graph[2][2] = 0;
+    Graph[2][3] = 7;
+    Graph[2][4] = 0;
+    Graph[2][5] = 9;
+
+    Graph[3][0] = 6;
+    Graph[3][1] = 0;
+    Graph[3][2] = 7;
+    Graph[3][3] = 0;
+    Graph[3][4] = 0;
+    Graph[3][5] = 0;
+
+    Graph[4][0] = 0;
+    Graph[4][1] = 3;
+    Graph[4][2] = 0;
+    Graph[4][3] = 0;
+    Graph[4][4] = 0;
+    Graph[4][5] = 5;
+
+    Graph[5][0] = 0;
+    Graph[5][1] = 0;
+    Graph[5][2] = 9;
+    Graph[5][3] = 0;
+    Graph[5][4] = 5;
+    Graph[5][5] = 0;
+
+    u = 0;
+    Dijkstra(Graph, n, u);
+
+    return 0;
+}
+
+================================================= Dijkstras AdjMat =================================
+
+#include <limits.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+#define V 9
+
+int minDistance(int dist[], bool sptSet[])
+{
+    int min = INT_MAX, min_index;
+
+    for (int v = 0; v < V; v++)
+        if (sptSet[v] == false && dist[v] <= min)
+            min = dist[v], min_index = v;
+
+    return min_index;
+}
+
+void printSolution(int dist[])
+{
+    printf("0 is the source node\n");
+    printf("Enter the vertex (0-8) till which you have to find the minimum distance from the source: ");
+    int v;
+    scanf("%d", &v);
+    for (int i = 0; i < V; i++)
+    {
+        if (v == i)
+        {
+            printf("Distance from source to entered vertex is: %d\n\n", dist[i]);
+        }
+    }
+}
+
+void dijkstra(int graph[V][V], int src)
+{
+    int dist[V];
+
+    bool sptSet[V];
+
+    for (int i = 0; i < V; i++)
+        dist[i] = INT_MAX, sptSet[i] = false;
+
+    dist[src] = 0;
+
+    for (int count = 0; count < V - 1; count++)
+    {
+        int u = minDistance(dist, sptSet);
+
+        sptSet[u] = true;
+
+        for (int v = 0; v < V; v++)
+
+            if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v])
+                dist[v] = dist[u] + graph[u][v];
+    }
+
+    printSolution(dist);
+}
+
+int main()
+{
+    int graph[V][V] = {{0,2,0,6,0,0},
+                        {2,0,4,0,3,0},
+                        {0,4,0,3,0,9},
+                        {6,0,7,0,0,0},
+                        {0,3,0,0,0,5},
+                        {0,0,9,0,5,0}};
+
+    dijkstra(graph, 0);
+
+    return 0;
+}
+
+============================================= Wireshark =====================================
+
+1. Identify the first 2 packets (i.e. their packet numbers) containing HTTP GET request.
+Hint: Apply a filter to view only those packets which correspond to HTTP GET requests. The syntax is:
+http.request.method == ”?”. Type the method name in place of ?. The method name is case-sensitive.
+
+2. What webpage was visited in the above 2 packets?
+Hint: Look at the HyperText Transfer Protocol −− > Host field in the Packet Details section of the GUI
+corresponding to these packets.
+
+3. What version of HTTP was used?
+Hint: Look at the Info column in the Packet List section to find the HTTP version.
+
+4. What is the destination IP address in the above packets?
+Hint: Look at the Destination column in the Packet List section. You can also look at the Internet Protocol −− >
+Destination field in the Packet Details section of the GUI corresponding to these packets.
+
+5. List the source and destination ports of the packets travelling from the client to the server in the
+above packets?
+Hint: Look at the Transmission Control Protocol details in the Packet Details section of the GUI corresponding
+to these packets.
+
+6. In the HTTP server’s response, look at the information sent about the server. What server software
+was used?
+Hint: Apply the filter: http.response to view only the packets corresponding to HTTP response (OK)
+messages. Look at the HyperText Transfer Protocol −− > Server field in the Packet Details section of the GUI
+corresponding to any packet to identify the server software.
+
+7. What are the IP addresses of the server?
+Hint: Go to Statistics menu −− > Conversations. Under the IPv4 tab, the Address A column shows the server
+IP addresses and the Address B column shows the client IP address.
+
+8. What are the MAC addresses of the client and server?
+Hint: Apply the filter: ip.src == ? where ? represents the client IP address. For a packet with client as source
+and one of the IP addresses of the server as destination, look at the Ethernet II details in the Packet Details
+section of the GUI to identify the MAC addresses of client and server.
+
+9. How many webpages (not websites) have been opened?
+Hint: Go to Statistics menu −− > HTTP −− > Load Distribution. Apply ’http’ filter. Now count the number of
+webpages under the ’HTTP Requests By HTTP Host’ section.
+
+10. What is the time difference between first HTTP GET and the first HTTP response (OK)?
+Hint: Apply the http filter. Set the packet corresponding to the first HTTP GET as the Time Reference
+(right-click on that packet and click on the Set Time Reference option). Find the packet corresponding to the
+first HTTP response (OK). Look at the Time column in the Packet List section of the GUI.
+
+11. Count the total number of HTTP GET requests.
+Hint: Apply a filter to view only the packets corresponding to HTTP GET requests. The number of packets
+displayed will tell you the count. Look at the Status bar.
+
+12. What is the time difference between the first and last HTTP GET requests?
+Hint: Follow a similar procedure as mentioned previously.
+
+13. How may packets were exchanged between the server (corresponding to the both IP ad dresses)
+and the client? (Note: Their sum must be equal to the total no. of packets)
+Hint: Go to Statistics menu −− > Conversations. Under the IPv4 tab, the Packets column shows the number of
+packets exchanged by both IP addresses of the server with the client.
+
+14. Find the total no. of HTTP requests sent by the host spongebob.wikia.com.
+Hint: Follow a procedure similar to the one used to find the number of webpages visited. The Count column
+will display the no. of HTTP requests sent by the above host.
+
+============================================== Open SSL =================================================
+
+openssl genrsa -out priv-key.pem
+
+cat priv-key.pem
+
+openssl rsa -pubout -in priv-key.pem -out pub-key.pem
+
+openssl rsa -text -in priv-key.pem
+
+~$ cat > file.txt 
+I use C++ for coding 
+(ctrl D to save file)
+
+openssl rsautl -encrypt -in file.txt -pubin -inkey pub-key.pem -out cipher.bin
+
+cat cipher.bin
+
+openssl rsautl -decrypt -in cipher.bin -inkey priv-key.pem -out decrypted.txt
+
+cat decrypted.txt
+
+========================================== Socket Prog ===============================================
+
+MyServer
+
+import java.io.*;
+import java.net.*;
+
+public class MyServer {
+    public static void main(String[] args) {
+        try {
+            ServerSocket ss = new ServerSocket(6665);
+            Socket s = ss.accept();// establishes connection
+            DataInputStream dis = new DataInputStream(s.getInputStream());
+            String str = (String) dis.readUTF();
+            System.out.println("Message is :\t " + str);
+            ss.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+MyClient
+
+import java.io.*;
+import java.net.*;
+
+public class MyClient {
+    public static void main(String[] args) {
+        try {
+            Socket s = new Socket("localhost", 6665);
+            DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+            dout.writeUTF("I use CPP for coding");
+            dout.flush();
+            dout.close();
+            s.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+

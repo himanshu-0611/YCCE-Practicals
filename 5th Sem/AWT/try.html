@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Document</title>
+        <style>
+            table {
+                margin: auto;
+            }
+            th,td {
+                color: black;
+                padding: 5px;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+         </style>
+    </head>
+    <body>
+        <%
+            Set MyBrow=Server.CreateObject("MSWC.BrowserType")
+        %>
+        <div class="main">
+        <table style="border: 1px solid black">
+            <span class="main">
+                <tr>
+                    <th colspan="2" style="text-align: center">
+                        Practical 7 Browser Capabilities
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center">
+                        Created By Himanshu Agarkar
+                    </th>
+                </tr>
+            </span>
+            <tr>
+                <td>Name of Browser</td>
+                <td><%=MyBrow.browser%></td>
+            </tr>
+            <tr>
+                <td>Operating System being used</td>
+                <td><%=MyBrow.platform%></td>
+            </tr>
+            <tr>
+                <td>Version of Browser</td>
+                <td><%=MyBrow.version%></td>
+            </tr>
+            <tr>
+                <td>Major Version of Browser</td>
+                <td><%=MyBrow.majorver%></td>
+            </tr>
+            <tr>
+                <td>Minor Version of Browser</td>
+                <td><%=MyBrow.minorver%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used support frame?</td>
+                <td><%=MyBrow.frames%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used support tables?</td>
+                <td><%=MyBrow.tables%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used support cookies?</td>
+                <td><%=MyBrow.cookies%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used background sounds?</td>
+                <td><%=MyBrow.backgroudsounds%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used Javascript?</td>
+                <td><%=MyBrow.javascript%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used Vbscript?</td>
+                <td><%=MyBrow.vbscript%></td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,614 @@
+----------------------------------------1--------------------------------------
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Change the content of a cell</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+ <body>
+    <table id="myTable" border="4" style="background-color: cyan">
+    </table>
+    <form>
+        <input type="button" onclick="myFunction()" value="Create the table">
+    </form>
+    <script>
+        function myFunction() {
+            row = prompt("Enter number of rows", 1);
+            column = prompt("Enter number of columns", 1);
+            for (var r = 0; r < parseInt(row, 10); r++) {
+                var x = document.getElementById('myTable').insertRow(r);
+                for (var c = 0; c < parseInt(column, 10); c++) {
+                    var y = x.insertCell(c);
+                    y.innerHTML = "Row : " + r + " Column : " + c;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+------------------------------------------- 2 ----------------------------------------------
+
+<html>
+<head>
+    <title>Employee Registration Form</title>
+    <style>
+        .mt-3{
+            margin-top: 27px;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="header">Employee Registration Form</div>
+        <div class="fields">
+            <div class="mt-3">
+                <label for="fname" class="finput">Full Name:
+                <input type="text" id="fname" name="fname">
+            </div>
+            <div class="mt-3">
+                Email:
+                <input type="mail" id="email" name="email">
+            </div>
+            <div class="mt-3">
+                Employee Number:
+                <input type="number" id="eno" name="eno">
+            </div>
+            <div class="mt-3">
+                Gender:
+                <input type="radio" name="gender" value="Male" id="male">Male
+                <input type="radio" name="gender" value="Female" id="male">Female
+            </div>
+            <div class="mt-3">
+                Hobbies:
+                <input type="checkbox" value="sports" name="hob1">Sports
+                <input type="checkbox" value="mus" name="hob2">Music
+                <input type="checkbox" value="trav" name="hob3">Travel
+                <input type="checkbox" value="mov" name="hob4">Movies
+            </div>
+            <div class="mt-3">
+                Marital Status:
+                <select name="mar" id="mstatus">
+                    <option value="m2">Unmarried</option>
+                    <option value="m1">Married</option>
+                </select>
+            </div>
+            <div class="mt-3">
+                Upload Passport Size Photo:
+                <input type="file" id="choose-file" size="80">
+            </div>
+            <div class="mt-3">
+                Experience in MERN Stack Development:
+                <input type="range" min="20" max="100" step="5" value="0" id="experience" style="height:28px; width:20%;padding:0;">
+                <span>100%</span>
+            </div>
+            <div class="mt-3">
+                Write about yourself:
+                <textarea name="bio" id="bio" cols="60" rows="5"></textarea>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div class="lastline"></div>
+</body>
+</html>
+
+
+-------------------------------------------------- 3 ----------------------------------------- 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Varela+Round&display=swap');
+        *{
+            text-align: center;
+        }
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .fields{
+            margin: auto;
+            align-self: center;
+            padding-top: 1px;
+            width: 50%;
+            padding-bottom: 20px;
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.326);
+            border-radius: 50px;
+        }
+
+        .header{
+            font-size: 40px;
+        }
+
+        .mt-3{
+            margin-top: 27px;
+        }
+
+        .lastline{
+            font-weight: 700;
+            font-size: 25px;
+        }
+
+        .btn{
+            font-size: 20px;
+            background-color: rgb(255, 69, 69);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #mstatus, #choose-file{
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+--------------------------------------------- 4 -----------------------------------------------
+
+<!DOCTYPE html>
+<html>
+    <title>Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+        body{
+            margin: 0;
+            padding: 0;
+            margin: auto;
+            margin-top: 15px;
+            background-image: url('bg1.jpg');
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+        }
+        input[type="button"] {
+            background-color: rgb(235, 235, 235);
+            width: 100%;
+            padding: 20px 40px;
+            color: black;
+            font-size: 24px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            padding: 20px 30px;
+            color: black;
+            font-size: 24px;
+            border: 2px solid black;
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+        table{
+            margin: auto;
+            margin-top: 15px;
+        }
+        .name{
+            margin-top: 5px;
+            font-size: 29px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+<head>
+</head>
+
+<body>
+	<table id="calcu">
+		<tr>
+			<td colspan="3"><input type="text" id="result" disabled></td>
+			<td><input type="button" value="c" onclick="clr()" /> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" onclick="dis('1')"> </td>
+			<td><input type="button" value="2" onclick="dis('2')"> </td>
+			<td><input type="button" value="3" onclick="dis('3')"> </td>
+			<td><input type="button" value="/" onclick="dis('/')"> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="dis('4')"> </td>
+			<td><input type="button" value="5" onclick="dis('5')"> </td>
+			<td><input type="button" value="6" onclick="dis('6')"> </td>
+			<td><input type="button" value="*" onclick="dis('*')"> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="dis('7')"> </td>
+			<td><input type="button" value="8" onclick="dis('8')"> </td>
+			<td><input type="button" value="9" onclick="dis('9')"> </td>
+			<td><input type="button" value="-" onclick="dis('-')"> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="0" onclick="dis('0')"> </td>
+			<td><input type="button" value="." onclick="dis('.')"> </td>
+
+			<td><input type="button" value="=" onclick="solve()"> </td>
+
+			<td><input type="button" value="+" onclick="dis('+')"> </td>
+		</tr>
+	</table>
+    <div class="name"></div>
+
+	<script>
+		function dis(val) {
+			document.getElementById("result").value += val
+		}
+
+		function solve() {
+			let x = document.getElementById("result").value
+			let y = eval(x)
+			document.getElementById("result").value = y
+		}
+
+		function clr() {
+			document.getElementById("result").value = ""
+		}
+	</script>
+</body>
+
+</html>
+
+ 
+
+-------------------------------------------------- 5 --------------------------------------------------
+
+ 
+
+HTML Encode
+
+<% option explicit %>
+<html>
+<body>
+	<%=Server.HTMLEncode("Hello")%>
+</body>
+</html>
+
+URL Encode
+
+<% option explicit %>
+<html>
+<body>
+	<%=Server.URLEncode("https://www.ycce.edu/")%>
+</body>
+</html>
+
+<% option explicit %>
+<html>
+<body>
+	<%=Server.mappath(request.servervariables("path_info"))%>
+</body>
+</html>
+
+Execute & Transfer
+
+Execute
+
+<%
+response.write("In file 1<br>")
+Server.Execute("file2.asp")
+response.write("<br>Back in file1")
+%>
+
+<%
+response.write("<br>In file2<br>")
+%>
+
+Transfer
+
+<%
+response.write("In file 1<br>")
+Server.Transfer("file2.asp")
+response.write("<br>Back in file1")
+%>
+
+<%
+response.write("<br>In file2<br>")
+%>
+
+
+---------------------------------------------- 6 ----------------------------------------------
+
+Contents of try.asp
+
+<% option explicit %>
+<%
+Dim Searchterms,Date, objad
+Searchterms = request.cookies( "lastsearch") ("terms")
+Date = request.cookies ( "lastsearch") ("date")
+%>
+<Html>
+<Body>
+<form method = post action = "try1.asp"><center>
+<Br><Br>
+<b> <center>Search What You Want....</center></b>
+<%
+If isdate(date) then
+response.write "(last visited on  " & now & ")"
+End if
+%>
+<Hr>
+<Center><font color=blue size =10> <input type=text name =terms value="<%= searchterms %>"<Br>
+<input type=submit value="search"></Center>
+<% set objad = nothing %>
+<h3>Hello</h3>
+</form>
+</Body>
+</Html>
+
+try1.asp
+
+<% option explicit %>
+<% 
+Dim Sterms
+Sterms=request ("terms")
+Response.Cookies ("lastsearch") ("terms") = sterms
+Response.Cookies ("lastsearch") ("date") = date
+Response.Cookies ("lastsearch").expires = date + 365
+%>
+<Html>
+<Body>
+<b><Center>
+<font color = red size =30>Information Here....</font>
+</center>
+to try another search, <a href = "try.asp">Click here</a>
+<h3>Hello</h3>
+</Body>
+</Html>
+
+--------------------------------------------- 7 -----------------------------------------------
+
+
+
+<html>
+    <head>
+        <title>Document</title>
+        <style>
+            table {
+                margin: auto;
+            }
+            th,td {
+                color: black;
+                padding: 5px;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+         </style>
+    </head>
+    <body>
+        <%
+            Set MyBrow=Server.CreateObject("MSWC.BrowserType")
+        %>
+        <div class="main">
+        <table style="border: 1px solid black">
+            <span class="main">
+                <tr>
+                    <th colspan="2" style="text-align: center">
+                        Practical 7 Browser Capabilities
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center">
+                        Hello
+                    </th>
+                </tr>
+            </span>
+            <tr>
+                <td>Name of Browser</td>
+                <td><%=MyBrow.browser%></td>
+            </tr>
+            <tr>
+                <td>Operating System being used</td>
+                <td><%=MyBrow.platform%></td>
+            </tr>
+            <tr>
+                <td>Version of Browser</td>
+                <td><%=MyBrow.version%></td>
+            </tr>
+            <tr>
+                <td>Major Version of Browser</td>
+                <td><%=MyBrow.majorver%></td>
+            </tr>
+            <tr>
+                <td>Minor Version of Browser</td>
+                <td><%=MyBrow.minorver%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used support frame?</td>
+                <td><%=MyBrow.frames%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used support tables?</td>
+                <td><%=MyBrow.tables%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used support cookies?</td>
+                <td><%=MyBrow.cookies%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used background sounds?</td>
+                <td><%=MyBrow.backgroudsounds%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used Javascript?</td>
+                <td><%=MyBrow.javascript%></td>
+            </tr>
+            <tr>
+                <td>Does browser being used Vbscript?</td>
+                <td><%=MyBrow.vbscript%></td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>
+
+
+
+------------------------------------------ 8 ------------------------------------------
+
+info.txt
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "pr8.txt");
+  xhttp.send();
+}
+</script>
+</body>
+</html>
+
+
+pract.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Practical 5</h1>
+    <h2>Aim:</h2>
+    <p>Create a simple XMLHttpRequest and retrieve data from a text file</p>
+    <p>Hi</p>
+    <p>Hello</p>
+</body>
+</html>
+
+
+---------------------------------------- 9 --------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div>
+  <a href='#' id='trigger'>Download Image</a>
+</div>
+<img />
+
+<script>
+const trigger = document.querySelector('#trigger');
+trigger.addEventListener('click', () => {
+  const req = new XMLHttpRequest();
+  req.responseType = "arraybuffer";
+  req.onload = function onload() {
+    const type = this.getResponseHeader('Content-Type');
+    const jpegData = this.response;
+    const blob = new Blob([jpegData], { type });
+    const reader = new FileReader();
+    reader.onload = e => {
+      document.querySelector('img').setAttribute('src', e.target.result);
+      const anchor = document.createElement('a');
+  anchor.style.display = 'none';
+			anchor.href = e.target.result;
+      anchor.download = 'image.jpg';
+      anchor.click();
+    };
+    reader.readAsDataURL(blob);
+  };
+  
+  req.onreadystatechange = () => {
+    if(req.readyState === XMLHttpRequest.OPENED) {
+			req.setRequestHeader('Accept', 'image/jpeg');
+      req.send();
+    }
+  };
+  req.open('get', 'ironman.jpg');
+});
+
+</script>
+
+</body>
+</html>
+
+
+---------------------------------------- 10 -------------------------------------- 
+
+
+pract.html
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic Dropdown</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#json-one").change(function () {
+          var $dropdown = $(this);
+          $.getJSON("data.json", function (data) {
+            var key = $dropdown.val();
+            var vals = [];
+            switch (key) {
+              case "sports":
+                vals = data.sports.split(",");
+                break;
+              case "movies":
+                vals = data.movies.split(",");
+                break;
+              case "news":
+                vals = data.news.split(",");
+                break;
+              case "base":
+                vals = ["Please choose from above"];
+            }
+            var $jsontwo = $("#json-two");
+            $jsontwo.empty();
+            $.each(vals, function (index, value) {
+              $jsontwo.append("<option>" + value + "</option>");
+            });
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Pulling from JSON</h1>
+    <select id="json-one">
+      <option selected value="base">Please Select</option>
+      <option value="sports">Sports</option>
+      <option value="movies">Movies</option>
+      <option value="news">News</option>
+    </select>
+    <br />
+    <select id="json-two">
+      <option>Please choose from above</option>
+    </select>
+    <h3>Hi Hello</h3>
+  </body>
+</html>
+
+data.json
+
+{
+"sports": "Cricket, Football, Hockey",
+"movies": "Transformers, Avengers, Tenet",
+"news": "Aaj Tak, IndiaTV, BBC"
+}
+
+
+
+ 
+

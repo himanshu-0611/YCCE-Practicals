@@ -1,0 +1,24 @@
+<% option explicit %>
+<%
+Dim Searchterms,Date, objad
+Searchterms = request.cookies( "lastsearch") ("terms")
+Date = request.cookies ( "lastsearch") ("date")
+%>
+<Html>
+<Body>
+<form method = post action = "XYZ.asp"><center>
+<Br><Br>
+<b> <center>Search What You Want....</center></b>
+<%
+If isdate(date) then
+response.write "(last visited on  " & now & ")"
+End if
+%>
+<Hr>
+<Center><font color=blue size =10> <input type=text name =terms value="<%= searchterms %>"<Br>
+<input type=submit value="search"></Center>
+<% set objad = nothing %>
+<h3>Created by Himanshu Agarkar</h3>
+</form>
+</Body>
+</Html>

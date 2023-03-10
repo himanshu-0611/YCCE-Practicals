@@ -1,0 +1,46 @@
+<!-- <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplicationycce1.WebForm1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server"><title></title>
+</head><body>
+<form id="form1" runat="server"><div>
+<center><asp:Image ID="Image1" runat="server" Height="200px" ImageUrl="~/ycce.jpg" Width="686px" />
+<br />
+<br />
+Welcome to YCCE<br />
+<br />
+<asp:RadioButtonList ID="RadioButtonList1" runat="server">
+<asp:ListItem>PASS</asp:ListItem>
+<asp:ListItem>FAIL</asp:ListItem>
+</asp:RadioButtonList>
+<br />
+<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Click" /><br /><br />
+<asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/WebForm2.aspx">click here to go
+</asp:LinkButton>
+</center></div>
+</form></body>
+</html>
+
+
+ -->
+
+ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebControls.aspx.cs"   
+ Inherits="WebFormsControlls.WebControls" %>  
+ <!DOCTYPE html>  
+ <html xmlns="http://www.w3.org/1999/xhtml">  
+ <head runat="server">  
+     <title></title>  
+ </head>  
+ <body>  
+     <form id="form1" runat="server">  
+         <div>  
+             <asp:RadioButton ID="RadioButton1" runat="server" Text="Male" GroupName="gender" />  
+             <asp:RadioButton ID="RadioButton2" runat="server" Text="Female" GroupName="gender" />  
+         </div>  
+         <p>  
+             <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" style="width: 61px" />  
+         </p>  
+     </form>  
+     <asp:Label runat="server" id="genderId"></asp:Label>  
+ </body>  
+ </html>  

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<form>
+    <table border="2px" align="center" style="background-color: aquamarine;">
+    <tr>
+        <th>
+            <label for="fn">first number</label><br>
+        </th>
+        <th>
+            <input type="number" id="fn">
+        </th>
+    </tr>
+                <!-- Himanshu Agarkar -->
+                <!-- A45     20010343 -->
+    <tr>             
+        <th>
+            <label for="sn">second number</label><br>
+        </th>
+        <th>
+            <input type="number" id="sn">
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <label for="optr">select operation</label><br>
+        </th>
+    <th>
+    <select name="optr" id="optr">
+        <option value="Addition">Addition</option>
+        <option value="Subtraction">Subtraction</option>
+        <option value="Multiplication">Multiplication</option>
+        <option value="Division">Division</option>
+    </select>
+    </th>
+    </tr>
+
+    <tr>
+    <th>
+        <input type="Submit" onclick="myfunction()">
+    </th>
+    </tr>
+                    <!-- Himanshu Agarkar -->
+                    <!-- A45      20010343-->
+    </table>
+</form>
+<p id="demo"></p>
+<script>
+    function myfunction(){
+        var x = document.getElementById("fn").value; var y = document.getElementById("sn").value; var z = document.getElementById("optr").value; var Addition=0;
+        if(z=="Addition")
+        {
+            Addition=parseInt(x)+parseInt(y); alert(Addition);
+        }
+        if(z=="Subtraction")
+        {
+            alert(x-y);
+        }                           //Himanshu Agarkar
+        if(z=="Multiplication")     //A45 20010343
+        {
+            alert(x*y);
+        }
+        if(z=="Division")
+        {
+            alert(x/y);
+        }
+    }
+</script>
+<body style="text-align: center;">
+    <h2>Himanshu Agarkar</h2>
+    <h2>A45 20010343</h2>
+</body>
+</html>

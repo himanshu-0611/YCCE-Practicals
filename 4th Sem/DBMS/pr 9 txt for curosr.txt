@@ -1,0 +1,67 @@
+Write a stored procedure to display the result
+as “Professor” name of instructor “works in” department name
+“having Salary” salary. From the university schema
+
+=========================================================================
+=========================================================================
+
+delimiter $$
+create procedure salary_statement()
+
+begin
+	declare pname varchar(100);
+	declare pdname varchar(100);
+	declare psal varchar(100);
+	declare p_finished interger default 0;
+	declare c1 cursor for select name, dept_name, salary from instructor;
+	declare continue handler for NOT FOUND set p_finished = 1;
+
+	open c1;
+	get_op: LOOP
+		fetch c1 into pname, pdname, psal;
+		if p_finished = 1 then
+			leave get_op;
+		end if;
+		select concat(pname, pdname, psal);
+	end loop get_op;
+	close c1;
+end $$
+
+=========================================================================
+=========================================================================
+
+mysql> create table table1 (
+    -> id int,
+    -> name varchar(100),
+    -> class varchar(10));
+Query OK, 0 rows affected (0.22 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> insert into table1(id, name, class)
+    -> values(1, 'A', 'M'),
+    -> (2, 'B', 'N'),
+    -> (3, 'C', 'O'),
+    -> (4, 'D', 'P');
+
+
+
+delimiter //
+create procedure sal_stat (inout stat_sal varchar(4000))
+begin
+declare is_done integer default 0;
+declare i_name varchar(100) default "";
+declare ins_cursor cursor for
+select name from instructor;
+declare continue handler for not found set is_done = 1;
+open ins_cursor;
+get_list: loop
+fetch ins_cursor into i_name;
+if is_done = 1 then
+leave get_list;
+end if;
+set stat_sal = concat(ins_name, "earns", stat_sal);
+end loop get_list;
+close stud_cursor;
+end //
